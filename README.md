@@ -1,2 +1,2 @@
-# Leetcode
- My Leetcode journey
+# DSA
+ My DSA journey
