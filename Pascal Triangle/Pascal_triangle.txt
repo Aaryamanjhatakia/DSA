@@ -1,0 +1,12 @@
+Formula for finding element at row r and column c....
+n=r-1 , r=c-1
+nCr = n!/(r!)*((n-r)!)
+
+this is the brute force solution, there is an easier way
+Ex1:
+for r=7,c=2
+ele= 7*6/2*1
+
+Ex2:
+for r=9,c=3
+ele=9*8*7/3*2*1
