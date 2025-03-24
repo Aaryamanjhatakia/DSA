@@ -1,0 +1,46 @@
+Problem Statement: Given an array of N + 1 size, where each element is between 1 and N. 
+Assuming there is only one duplicate number, your task is to find the duplicate number.
+
+Example 1: 
+
+Input: arr=[1,3,4,2,2]
+
+Output: 2
+
+Explanation: Since 2 is the duplicate number the answer will be 2.
+
+Example 2:
+
+Input: [3,1,3,4,2]
+
+Output:3
+
+Explanation: Since 3 is the duplicate number the answer will be 3.
+
+(Floyd’s Cycle Detection - Find Duplicate Number)
+Initialize Pointers:
+
+Set slow and fast pointers to nums[0].
+
+Phase 1: Detect Cycle (Tortoise and Hare Step)
+
+Move slow by 1 step: slow = nums[slow].
+
+Move fast by 2 steps: fast = nums[nums[fast]].
+
+Repeat until slow == fast (cycle detected).
+
+Phase 2: Find the Duplicate (Start of Cycle)
+
+Reset fast to nums[0].
+
+Move both slow and fast one step at a time:
+slow = nums[slow], fast = nums[fast].
+
+Repeat until slow == fast.
+
+Return the duplicate number:
+
+The point where slow and fast meet again is the duplicate element.
+
+This algorithm runs in O(n) time and uses O(1) space.
