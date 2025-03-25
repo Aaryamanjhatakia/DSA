@@ -1,0 +1,66 @@
+Problem Statement: You are given a read-only array of N integers with values also in the range [1, N] both inclusive. 
+Each integer appears exactly once except A which appears twice and B which is missing. 
+The task is to find the repeating and missing numbers A and B where A repeats twice and B is missing.
+
+Example 1:
+Input Format
+:  array[] = {3,1,2,5,3}
+Result
+: {3,4)
+Explanation
+: A = 3 , B = 4 
+Since 3 is appearing twice and 4 is missing
+
+
+Mathematical soln:
+The idea is to convert the given problem into mathematical equations. 
+Since we have two variables i.e. missing and repeating, we will try to form two linear equations. 
+And then we will find the values of two variables using those equations.
+Assume the repeating number to be X and the missing number to be Y.
+
+In the array, the numbers are between 1 to N, and in that range, one number is missing and one number is occurring twice.
+
+Step 1: Form equation 1:
+
+Now, we know the summation of the first N numbers is:
+
+Sn = (N*(N+1))/2
+Let’s say, S = the summation of all the elements in the given array.
+
+Therefore, S - Sn = X - Y…………………equation 1
+Step 2: Form equation 2:
+
+Now, we know the summation of squares of the first N numbers is:
+
+S2n = (N*(N+1)*(2N+1))/6
+Let’s say, S2 = the summation of squares of all the elements in the given array.
+
+Therefore, S2-S2n = X2-Y2...................equation 2
+From equation 2 we can conclude,
+
+X+Y = (S2 - S2n) / (X-Y) [From equation 1, we get the value X-Y] ………… equation 3
+From equation 1 and equation 3, we can easily find the value of X and Y. And this is what we want.
+
+Note: Here, we are summing all the numbers and squares of all the numbers, so we should use a bigger data type(Like in C++, long long instead of int).
+
+Approach:
+Assume the repeating number to be X and the missing number to be Y.
+
+The steps are as follows:
+
+First, find out the values of S and Sn and then calculate S - Sn (Using the above formulas).
+Then, find out the values of S2 and S2n and then calculate S2 - S2n.
+After performing steps 1 and 2, we will be having the values of X + Y and X - Y. Now, by substitution of values, we can easily find the values of X and Y.
+
+
+XOR Solution:
+The steps are as follows:
+
+For the first step, we will run a loop and calculate the XOR of all the array elements and the numbers between 1 to N. Let’s call this value xr.
+In order to find the position of the first set bit from the right, we can either use a loop or we can perform AND of the xr and negation of (xr-1) i.e. (xr & ~(xr-1)).
+Now, we will take two variables i.e. zero and one. Now, we will check the bit of that position for every element (array elements as well as numbers between 1 to N).
+If the bit is 1: We will XOR that element with variable one.
+If the bit is 0: We will XOR that element with variable zero.
+Finally, we have two variables i.e. two numbers zero and one. Among them, one is repeating and the other is missing. It’s time to identify them. 
+We will traverse the entire array and check how many times variable zero appears. 
+If it appears twice, it will be the repeating number, otherwise, it will be the missing. Now, based on variable zero’s identity, we can easily identify in which category, variable one belongs.
