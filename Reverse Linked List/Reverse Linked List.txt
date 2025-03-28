@@ -1,0 +1,62 @@
+Problem Statement: Problem Statement: Given the head of a singly linked list, write a program to reverse the linked list, 
+and return the head pointer to the reversed list.
+
+1. Iterative approach:-
+Algorithm:
+
+Step 1: Initialise a ‘temp’ pointer at the head of the linked list. This pointer will be used to traverse the linked list. 
+And initialize the pointer ‘prev’ to ‘NULL’ to keep track of the previous node. This will be used to reverse the direction of the ‘next’ pointers.
+
+
+Step 2: Traverse the entire linked list by moving through each node using the 'temp' pointer until it reaches the end (marked as 'NULL').
+
+At each iteration within the traversal,
+
+Save the reference to the next node that 'temp' is pointing to in a variable called 'front'. This helps retain the link to the subsequent node before altering the 'next' pointer.
+
+Reverse the direction of the ‘next’ pointer of the current node (pointed to by ‘temp’) to point to the ‘prev’ node. This effectively reversed the direction of the linked list, 
+making the current node point to the previous node. 
+
+Move the ‘prev’ pointer to the current node. This sets up the ‘prev’ pointer for the next iteration of the loop.
+Move the ‘temp’ pointer to the ‘front’ node. This advances the traversal to the next node in the original order.
+
+In summary:
+
+
+Step 3: Keep traversing through the linked list using the 'temp' pointer until it reaches the end, thereby reversing the entire list. 
+Once the 'temp' pointer reaches the end, return the new head of the reversed linked list, which is now indicated by the 'prev' pointer. 
+This 'prev' pointer becomes the first node in the newly reversed list.
+
+
+2. Recursive Approach:-
+Base Case:
+Check if the linked list is empty or contains only one node. Return the head as it's already reversed in these cases.
+
+Recursive Function:
+The core of the algorithm lies in implementing a recursive function responsible for reversing the linked list. 
+This function operates based on the following principle:
+
+If the base case conditions are not met, the function invokes itself recursively. 
+This recursion continues until it reaches the base case, gradually reversing the linked list starting from the second node (node after it) onward.
+
+Return
+
+Following the recursion, the function returns the new head of the reversed linked list. 
+This head marks the last node of the original list before reversal, now the first node in the reversed sequence.
+
+Step 1: Establish Base Case Conditions: Check if the linked list is either empty or contains only one node. If so, the list is already reversed; hence, return the head as is.
+
+Step 2: Recursively Reverse the List: Begin the recursive step by reversing the linked list, starting from the second node. 
+Utilise a recursive call to the reverse linked list function, passing the next node as an argument.
+
+Step 3: Preserve Access to Remaining Nodes: To maintain access to the rest of the linked list while reversing the order, 
+store a reference to the node following the current 'head' node. This step ensures continuity in the link sequence during reversal.
+
+Step 4: Reverse Link Direction: Adjust the 'front' node to point to the current 'head' node in the reversed order. 
+This action effectively reverses the link between the 'head' node and the 'front' node.
+
+Step 5: Prevent Cyclic References: Break the link from the current 'head' node to the 'front' node to prevent any cyclic formations. 
+Set 'head->next' to 'NULL' to ensure the reversed segment of the list does not create a loop.
+
+Step 6: Return the New Head: Finally, return the 'newHead,' which signifies the new head of the reversed linked list. 
+This 'newHead' was initially the last node in the list before the reversal commenced.
