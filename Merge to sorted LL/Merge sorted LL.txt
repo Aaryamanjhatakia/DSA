@@ -1,0 +1,15 @@
+Problem Statement: Given two sorted linked lists, merge them to produce a combined sorted linked list. Return the head of the final linked list created.
+
+Algorithm
+
+Step 1: Initialise two pointers, t1 and t2 to the heads of the input linked lists. Create a dummyNode with value -1 that will serve as the starting point of the merged list. 
+Use a temp pointer to traverse and build the combined merged list.
+
+Step 2: While t1 and t2 are not null:
+
+Compare the values of t1 and t2, connect the node with smaller value to the temp pointer of the merged combined list.
+Move the temp pointer and the respective t1 and t2 pointer to their next nodes.
+
+Step 3: Attach the remaining nodes of the non-empty list directly to the temp pointer as they are already sorted.
+
+Step 4: Return the next of the dummyNode as the head of the merge sorted linked list.
