@@ -1,0 +1,11 @@
+Problem Statement: Given the head of a linked list of integers, determine the middle node of the linked list. 
+However, if the linked list has an even number of nodes, return the second middle node.
+
+Algorithm
+
+Step 1: Initialise two pointers, `slow` and `fast`, to the head of the linked list. `slow` will advance one step at a time, while `fast` will advance two steps at a time. 
+These pointers will move simultaneously.
+
+Step 2: Traverse the linked list with the `slow` and `fast` pointers. While traversing, repeatedly move `slow` one step and `fast` two steps at a time.
+
+Step 3: Continue this traversal until fast reaches the end of the list (i.e., fast or fast.next is null), the slow pointer will be at the middle of the list.
