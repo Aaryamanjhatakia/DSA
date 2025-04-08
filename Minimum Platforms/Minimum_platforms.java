@@ -1,3 +1,5 @@
+
+//Optimised Solution
 import java.util.*;
 
 class Minimum_platforms {
