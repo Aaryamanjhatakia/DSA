@@ -1,0 +1,22 @@
+Problem Statement: Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. 
+If the two linked lists have no intersection at all, return null.
+
+Examples:
+
+Example 1:
+Input:
+List 1 = [1,3,1,2,4], List 2 = [3,2,4]
+Output:
+2
+Explanation: Here, both lists intersecting nodes start from node 2.
+
+Solution:Hashing
+Iterate through list 1 and hash its node address. Why? (Hint: depends on the common attribute we are searching)
+Iterate through list 2 and search the hashed value in the hash table. If found, return node.
+
+Solution:Optimised
+The difference of length method requires various steps to work on it. Using the same concept of difference of length, a different approach can be implemented. The process is as follows:-
+
+Take two dummy nodes for each list. Point each to the head of the lists.
+Iterate over them. If anyone becomes null, point them to the head of the opposite lists and continue iterating until they collide.
+
