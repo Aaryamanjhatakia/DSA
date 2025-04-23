@@ -1,0 +1,71 @@
+Problem Statement: Given a circular integer array A, return the next greater element for every element in A. 
+The next greater element for an element x is the first element greater than x that we come across while traversing the array in a clockwise manner. 
+If it doesn't exist, return -1 for this element.
+
+Example 1: 
+
+Input: N = 11, A[] = {3,10,4,2,1,2,6,1,7,2,9}
+
+Output: 10,-1,6,6,2,6,7,7,9,9,10
+
+Approach:
+
+This problem can be solved easily and efficiently by using the stack data structure as it is based on the Last in First out (LIFO) principle.
+
+To make it a bit easier let’s first try to solve without considering the array as circular. 
+To find the next greater element we start traversing the given array from the right. 
+As for the rightmost element, there is no other element at its right. 
+Hence, we assign -1 at its index in the resultant array. 
+Since this can be the next greater element (NGE) for some other element, we push it in the stack S. 
+We keep checking for other elements. Let’s say we are checking for an element at index i. 
+We keep popping from the stack until the element at the top of the stack is smaller than A[i]. 
+The main intuition behind popping them is that these elements can never be the NGE for any element present at the left of A[i] because A[i] is greater than these elements. 
+Now, if the top element of S is greater than A[i] then this is NGE of A[i] and we will assign it to res[i], where res is the resultant array. 
+If the stack becomes empty then it implies that no element at the right of A[i] is greater than it and we assign -1. At last, we push A[i] in S.
+
+
+Iterations with Explanations (for input: [5, 7, 1, 2, 6, 0]):
+i = 11 (nums[5] = 0)
+The stack is empty, so we just push 0.
+
+i = 10 (nums[4] = 6)
+6 is greater than the top of the stack (0), so we pop 0 and push 6.
+
+i = 9 (nums[3] = 2)
+2 is less than the top of the stack (6), so we keep 6 and push 2.
+
+i = 8 (nums[2] = 1)
+1 is less than the top (2), so we keep 2 and push 1.
+
+i = 7 (nums[1] = 7)
+7 is greater than the entire stack (1, 2, 6), so we pop all of them and then push 7.
+
+i = 6 (nums[0] = 5)
+5 is less than the top (7), so we keep 7 and push 5.
+
+i = 5 (nums[5] = 0)
+Now we’re in the actual array (i < n), so:
+0 is less than the top (5), so next greater for 0 is 5.
+We push 0.
+
+i = 4 (nums[4] = 6)
+6 is greater than the top (0) and also 5, so we pop both.
+Top is now 7, which is greater than 6, so next greater for 6 is 7.
+We push 6.
+
+i = 3 (nums[3] = 2)
+2 is less than the top (6), so next greater for 2 is 6.
+We push 2.
+
+i = 2 (nums[2] = 1)
+1 is less than the top (2), so next greater for 1 is 2.
+We push 1.
+
+i = 1 (nums[1] = 7)
+7 is greater than all stack elements (1, 2, 6), so we pop them all.
+Now stack is empty → next greater for 7 is -1.
+We push 7.
+
+i = 0 (nums[0] = 5)
+5 is less than 7, so next greater for 5 is 7.
+We push 5.
