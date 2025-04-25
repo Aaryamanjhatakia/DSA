@@ -1,0 +1,57 @@
+Problem Statement: Given a string s, reverse the words of the string.
+
+Example 1:
+Input: s=”this is an amazing program”
+Output: “program amazing an is this”
+
+Example 2:
+Input: s=”This is decent”
+Output: “decent is This”
+
+Approach:
+We start traversing the string from the end until we hit a space. It indicates that we have gone past a word and now we need to store it.
+We check if our answer variable is empty or not
+If it’s empty, it indicates that this is the last word we need to print, and hence, there shouldn’t be any space after this word.
+If it’s empty we add it to our result with a space after it. Here’s a quick demonstration of the same
+
+
+Loop through each character:
+ch = 'T' → temp = "T"
+
+ch = 'U' → temp = "TU"
+
+ch = 'F' → temp = "TUF"
+
+ch = ' ' (space)
+
+ans = "TUF"
+
+temp = ""
+
+ch = 'i' → temp = "i"
+
+ch = 's' → temp = "is"
+
+ch = ' '
+
+ans = "is TUF" (adds is in front)
+
+temp = ""
+
+ch = 'g' → temp = "g"
+
+ch = 'r' → temp = "gr"
+
+ch = 'e' → temp = "gre"
+
+ch = 'a' → temp = "grea"
+
+ch = 't' → temp = "great"
+
+ch = ' '
+
+ans = "great is TUF"
+
+temp = ""
+
+(And so on...)
