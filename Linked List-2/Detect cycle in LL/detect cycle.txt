@@ -1,0 +1,38 @@
+HashMap approach:
+A loop in a linked list occurs when there's a node that, when followed, brings you back to it, indicating a closed loop in the list.
+
+Algorithm:
+Step 1: Traverse through the LL using the traversal technique of assigning a temp node to the head and iterating by moving to the next element till we reach null.
+
+Step 2: While traversing, keep a track of the visited nodes in the map data structure. 
+
+Note: Storing the entire node in the map is essential to distinguish between nodes with identical values but different positions in the list. 
+This ensures accurate loop detection and not just duplicate value checks.
+
+Step 3: If a previously visited node is encountered again, that proves that there is a loop in the linked list hence return true.
+
+Step 4: If the traversal is completed, and we reach the last point of the LL which is null, it means there was noloop, hence we return false.
+
+
+Optimal approach:
+The previous method uses O(N) additional memory, which can become quite large as the linked list length grows. 
+To enhance efficiency, the Tortoise and Hare Algorithm is introduced as an optimization.
+
+The Tortoise and Hare approach has been discussed in this article. 
+
+When the tortoise and hare enter the loop, they may be at different positions within the loop due to the difference in their speeds. 
+The hare is moving faster, so it will traverse a greater distance in the same amount of time.
+
+If there is no loop in the linked list, the hare will eventually reach the end, and the algorithm will terminate without a meeting occurring.
+
+Algorithm
+Step 1: Initialise two pointers, `slow` and `fast`, to the head of the linked list. `slow` will advance one step at a time, while `fast` will advance two steps at a time. 
+These pointers will move simultaneously.
+
+Step 2: Traverse the linked list with the `slow` and `fast` pointers. While traversing, repeatedly move `slow` one step and `fast` two steps at a time.
+
+Step 3: Continue this traversal until one of the following conditions is met:
+
+`fast` or `fast.next` reaches the end of the linked list (i.e., becomes null). In this case, there is no loop in the linked list ie. the linked list is linear, and the algorithm terminates by returning false.
+`fast` and `slow` pointers meet at the same node. This indicates the presence of a loop in the linked list, and the algorithm terminates by returning `true`.
+
