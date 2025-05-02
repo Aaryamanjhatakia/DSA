@@ -28,6 +28,6 @@ public class Main {
         matrix.add(new ArrayList<>(Arrays.asList(9, 10, 11, 12)));
 
         boolean result = searchMatrix(matrix, 8);
-        System.out.println(result ? "true" : "false");
+        System.out.println(result ? "true" : "false");  
     }
 }
