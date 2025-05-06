@@ -1,0 +1,32 @@
+Check if the given Linked List is Palindrome.
+
+Brute force approach: Using Stack. Time: O(2N) Space: O(N)
+
+Optimal Approach:
+Algorithm / Intuition
+The previous approach uses O(N) additional space, which can be avoided by reversing only half of the linked list and comparing the first and second halves. 
+If they match, reverse the portion that was originally reversed, and then return true else return false.
+
+To implement this in-order reversal of the second half and its comparison with the first half has to be done in phases.
+The first step is dividing the first and second half of the linked list by recognizing the middle node using the Tortoise and Hare Algorithm. 
+
+Algorithm:
+Step 1: Check if the linked list is empty or has only one node. If that’s the case, it is a palindrome by definition, so return true.
+
+Step 2: Initialise two pointers, ‘slow’ and ‘fast’, to find the middle of the linked list using the Tortoise and Hare Algorithm. 
+The ‘slow’ pointer advances by one step at a time, while the ‘fast’ pointer advances by two steps at a time. 
+Continue this until the ‘fast’ pointer reaches the end of the list or is the second last on the list. 
+The ‘slow’ pointer will now be in the middle of the linked list.
+
+Step 3: Reverse the second half of the linked list starting from the middle (the ‘slow->next’ node). 
+This is done by calling the reverse linked list function and returning the head of the new reversed linked list.
+
+Step 4: Create two pointers, ‘first’ and ‘second’, where ‘first’ points to the head of the linked list, and ‘second’ points to the new head of the reversed second half.
+
+Step 5: Compare data values of nodes from both halves. If the values do not match, it means the list is not a palindrome. 
+In this case, return ‘false’. Continue moving both ‘first’ and ‘second’ pointers through their respective halves, 
+comparing the data values until one of them reaches the end of the list.
+
+Step 6: After the comparison, reverse the second half back to its original state using the reverse linked list function and join back the linked list to its original state. 
+Since all the values matched in the first half and reversed in the second half, return true. In case it does not match, return false.
+
