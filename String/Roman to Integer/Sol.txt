@@ -1,0 +1,15 @@
+Create a map of Roman characters to their integer values:
+
+'I' → 1, 'V' → 5, 'X' → 10, 'L' → 50, 'C' → 100, 'D' → 500, 'M' → 1000
+
+Initialize result as 0.
+
+Iterate through the string from index 0 to n - 2:
+
+If the current character's value is less than the next character’s value → subtract it from the result.
+
+Otherwise → add it to the result.
+
+After the loop, add the value of the last character to the result.
+
+Return the final result.
