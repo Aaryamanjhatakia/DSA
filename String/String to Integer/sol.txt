@@ -1,0 +1,17 @@
+Trim leading spaces from the string.
+
+Check for sign:
+
+If '+', set sign = 1.
+
+If '-', set sign = -1.
+
+Iterate through digits:
+
+If character is not a digit, stop.
+
+Multiply result by 10 and add digit value.
+
+If result exceeds 32-bit integer limits, return INT_MAX or INT_MIN.
+
+Return sign × result.
