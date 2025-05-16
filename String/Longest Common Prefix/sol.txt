@@ -1,0 +1,13 @@
+Check if input is empty → Return "" if the array is null or has no elements.
+
+Initialize prefix as the first string in the array.
+
+Loop through the rest of the strings in the array:
+
+While the current string doesn't start with the prefix:
+
+Shorten the prefix by removing the last character.
+
+If the prefix becomes empty, return "".
+
+After checking all strings, return the final prefix.
