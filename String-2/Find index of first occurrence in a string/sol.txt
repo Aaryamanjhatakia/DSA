@@ -1,0 +1,12 @@
+Check Length:
+If haystack is shorter than needle, return -1.
+
+Sliding Window Loop:
+For each index i from 0 to haystack.length() - needle.length():
+
+Extract substring from i to i + needle.length().
+
+If substring equals needle, return i.
+
+Not Found:
+After the loop, return -1 if no match is found.
