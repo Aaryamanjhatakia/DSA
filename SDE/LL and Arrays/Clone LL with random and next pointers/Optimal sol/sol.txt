@@ -1,0 +1,17 @@
+The previous approach uses an extra space complexity of creating mappings between the original and copied nodes. 
+Instead of creating duplicate nodes and storing them in a map, insert it in between the original node and the next node for quick access without the need for additional space.
+
+Traverse the list again to set the random pointer of copied nodes to the corresponding copied node duplicating the original arrangement. 
+As a final traversal, separate the copied and original nodes by detaching alternate nodes.
+
+Algorithm
+
+Step 1: Traverse the original node and create a copy of each node and insert it in between the original node and the next node.
+
+Step 2: Traverse this modified list and for each original node that has a random pointer, set the copied node’s random pointer to the corresponding copies random node. 
+If the original node’s random pointer is full, set the copied node’s random pointe to null as well.
+
+Step 3: RecursionTraverse the modified list again and extract the coped nodes by breaking the links between the original nodes and the copied nodes. 
+Revert the original list to its initial state by fixing the next pointers.
+
+Step 4: Return the head of the deep copy obtained after extracting the copied nodes from the modified list.
