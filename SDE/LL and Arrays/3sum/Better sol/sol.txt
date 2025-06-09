@@ -1,0 +1,20 @@
+Intuition:
+In the previous approach, we utilized 3 loops, but now our goal is to reduce it to 2 loops. To achieve this, 
+we need to find a way to calculate arr[k] since we intend to eliminate the third loop (k loop).
+
+Algorithm:
+The steps are as follows:
+
+First, we will declare a set data structure as we want unique triplets.
+Then we will use the first loop(say i) that will run from 0 to n-1.
+Inside it, there will be the second loop(say j) that will run from i+1 to n-1.
+Before the second loop, we will declare another HashSet to store the array elements as we intend to search for the third element using this HashSet.
+Inside the second loop, we will calculate the value of the third element i.e. -(arr[i]+arr[j]).
+If the third element exists in the HashSet, we will sort these 3 values i.e. arr[i], arr[j], and the third element, and insert it in the set data structure declared in step 1.
+After that, we will insert the j-th element i.e. arr[j] in the HashSet as we only want to insert those array elements that are in between indices i and j.
+Finally, we will return a list of triplets stored in the set data structure.
+
+Time Complexity: O(N2 * log(no. of unique triplets)), where N = size of the array.
+Reason: Here, we are mainly using 3 nested loops. And inserting triplets into the set takes O(log(no. of unique triplets)) time complexity. But we are not considering the time complexity of sorting as we are just sorting 3 elements every time.
+
+Space Complexity: O(2 * no. of the unique triplets) + O(N) as we are using a set data structure and a list to store the triplets and extra O(N) for storing the array elements in another set.
