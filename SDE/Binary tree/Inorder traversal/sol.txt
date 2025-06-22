@@ -1,0 +1,15 @@
+Inorder traversal stands as one of the depth-first traversal techniques for navigating nodes in a binary tree. 
+The method starts by exploring the left subtree recursively in the following order: left child, root node, right child. 
+Initially, it traverses the left subtree until reaching the leftmost node. Upon reaching a null node, signifying the end of a subtree, the recursive process halts.
+Then we visit the current node that had invoked the inorder on its left child. After visiting the current node we visit the right subtree in the inorder manner as well.
+
+Base Case: If the current node is null, it means we have reached the end of a subtree and there are no further nodes to explore. 
+Hence the recursive function stops and we return from that particular recursive call.
+
+Recursive Function:
+
+
+Traverse Left Subtree: Recursively traverse the left subtree by invoking the preorder function on the left child of the current node. This step continues the exploration of nodes in a depth first manner.
+Process Current Node: The recursive function begins by processing ie. adding to the array or printing the current node.
+Traverse Right Subtree: After traversing the entire left subtree,we traverse the right subtree recursively. We once again invoke the preorder function, but this time on the right child of the current node.
+
