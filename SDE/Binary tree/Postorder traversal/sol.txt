@@ -1,0 +1,8 @@
+Base Case: If the current node is null, it means we have reached the end of a subtree and there are no further nodes to explore. Hence the recursive function stops and we return from that particular recursive call.
+
+Recursive Function:
+
+
+Traverse Left Subtree: Explore the left subtree by recursively invoking the postorder function on the left child of the current node, ensuring a depth-first approach to node exploration.
+Traverse Right Subtree: After fully traversing the left subtree, we move on to the right subtree, invoking the postorder function on the right child of the current node.
+Process Current Node: After exploring the children of the current node, we process it by adding its value to the postorder traversal array.
