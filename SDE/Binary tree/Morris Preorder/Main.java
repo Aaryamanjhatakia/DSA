@@ -58,7 +58,7 @@ public class Main {
                     // Set the right child of the
                     // rightmost node to the current node
                     prev.right = cur;
-
+                    preorder.add(cur.val);
                     // Move to the left child
                     cur = cur.left;
                 } else {
@@ -66,10 +66,6 @@ public class Main {
                     // rightmost node is not null
                     // Reset the right child to null
                     prev.right = null;
-
-                    // Add the value of the
-                    // current node to the preorder list
-                    preorder.add(cur.val);
 
                     // Move to the right child
                     cur = cur.right;
