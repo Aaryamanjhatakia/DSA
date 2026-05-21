@@ -39,3 +39,11 @@ Find intersection of two LL/Intersection_optimised.class
 Find intersection of two LL/Intersection_optimized.class
 Find intersection of two LL/Node.class
 *.class
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Java
+*.class
